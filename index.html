@@ -6,13 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BMI Calculator</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <section>
             <div>
-                <h1>Check Your BMI</h1>
+                <h1>Check your BMI</h1>
+                <p class="desc">Enter your weight and height below to check your BMI result</p>
             </div>
+            <div class="form">
+                <p class="desc-input">Put your weight in here (KG)</p>
+                <input class="input" type="number" id="weight">
+                <p class="desc-input">And your height in here (CM)</p>
+                <input class="input" type="number" id="height"><br>
+                <button onclick="validateForm()" class="button">Calculate BMI</button>
+            </div>
+
+            <div id="result">
+
+            </div>
+
         </section>
     </body>
 </html>
