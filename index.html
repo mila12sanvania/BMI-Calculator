@@ -8,27 +8,49 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <section>
             <div>
                 <h1>Check your BMI</h1>
-                <p class="desc">Enter your weight and height below to check your BMI result</p>
+                <p class="desc"><b>Enter your weight and height below to check your BMI result</b></p>
             </div>
             <div class="form">
                 <p class="desc-input">Put your weight in here (KG)</p>
                 <input class="input" type="number" id="weight">
                 <p class="desc-input">And your height in here (CM)</p>
                 <input class="input" type="number" id="height"><br>
-                <button onclick="validateForm()" class="button">Calculate BMI</button>
+                <button onclick="calculator()" type="button" class="button"><b>Calculate BMI</b></button>
             </div>
 
             <div id="result">
+                <span></span>
 
             </div>
 
         </section>
+        <script>
+            function calculator(){
+                var height = document.getElementById("height").value
+                var weight = document.getElementById("weight").value
+                var result = document.getElementById("result");
+
+                var hasil = (weight/(height/100)**2).toPrecision(3)
+
+                if (hasil < 18.5){
+                    result.innerHTML = "Your BMI is" + " " + "<b>" + hasil + "</b>" + " " + "which means You are <b>Underweight</b>"
+                }else if (hasil >= 18.5 && hasil <= 24.9){
+                    result.innerHTML = "Your BMI is" + " " + "<b>" + hasil + "</b>" + " " + "which means You are <b>Normal</b>"
+                }else if (hasil >= 25 && hasil <= 29.9){
+                    result.innerHTML = "Your BMI is" + " " + "<b>" + hasil + "</b>" + " " + "which means You are <b>Overweight</b>"
+                }else if (hasil >= 30){
+                    result.innerHTML = "Your BMI is" + " " + "<b>" + hasil + "</b>" + " " + "which means You are <b>Obesity</b>"
+                }
+
+            }
+            
+        </script>
     </body>
 </html>
